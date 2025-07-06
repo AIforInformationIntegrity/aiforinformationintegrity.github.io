@@ -1,0 +1,79 @@
+<!-- Show author next to post, should show most up to date info -->
+<article class="author-card">
+    <div class="author-avatar">
+        {% if author.avatar %}
+        <img loading="{{ loading }}" src="{{ author.avatar | relative_url }}" alt="An image of {{ author.name }}">
+        {% else %}
+        <img loading="{{ loading }}" src="{{ site.author.avatar | relative_url }}" alt="An image of {{ author.name }}">
+        {% endif %}
+    </div>
+
+    <div class="author-info">
+        <b class="author-name">
+            {% if author.social_media_links %}
+            <a href="{{ author.social_media_links[0].url }}"
+                aria-label="Access the primary external link of this author">{{
+                author.name }}</a>
+            {% else %}
+            {{ author.name }}
+            {% endif %}
+        </b>
+
+        {% if include.role_to_render %}
+
+        <div class="author-advisor">
+            {% if include.role_to_render.type == "Student" %}
+            <b>
+                {% if include.role_to_render.title == "Intern" %}
+                Hosted by:
+                {% else %}
+                Advised by:
+                {% endif %}
+            </b>
+            {{ include.role_to_render.advisor }}
+            {% else %}
+            <b>{{ include.role_to_render.title }}</b>
+            {% endif %}
+        </div>
+        {% if include.role_to_render.start_date %}
+        <div class="author-advisor">
+            <span>
+                ({{ include.role_to_render.start_date }}{% if include.role_to_render.end_date %}-{{
+                include.role_to_render.end_date }}{% endif %})
+            </span>
+        </div>
+        {% endif %}
+
+        {% endif %}
+
+        {% if author.bio %}
+        <div class="author-bio">
+            {{ author.bio }}
+        </div>
+        {% endif %}
+
+        {% if author.note %}
+        <div class="author-note">
+            {{ author.note }}
+        </div>
+        {% endif %}
+
+        {% unless include.render_current_role %}
+        <div class="author-note">
+            <b>➡️ </b> {{ author.current_role.title }}
+        </div>
+        {% endunless %}
+
+        {% if author.social_media_links %}
+        <div class="author-links">
+            {% for link in author.social_media_links %}
+            {% include infer-icon.html link=link %}
+            {% if icon %}
+            <a href="{{ link.url }}" class="{{ icon }} author-button"
+                aria-label="Access author's external link for {{ icon }}"></a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</article>

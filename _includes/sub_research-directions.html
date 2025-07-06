@@ -1,0 +1,47 @@
+{% if include.category %}
+{% assign directions = site.research_directions | where: "category", include.category %}
+{% else %}
+{% assign directions = site.research_directions %}
+{% endif %}
+
+{% assign sorted_directions = directions | sort: "order" %} <!-- or sort: "date" -->
+
+{% if include.layout %}
+{% assign gallery_layout = include.layout %}
+{% else %}
+{% if directions.size == 2 %}
+{% assign gallery_layout = 'half' %}
+{% elsif directions.size >= 3 %}
+{% assign gallery_layout = 'third' %}
+{% else %}
+{% assign gallery_layout = '' %}
+{% endif %}
+{% endif %}
+
+<div class="sub-research-directions__wrapper  {{ gallery_layout }}">
+    {% for direction in sorted_directions %}
+    <div class="sub-research-directions-item">
+        <a href="{{ direction.url | relative_url }}" title="{{ direction.title }}">
+            <div class="sub-direction-image" style="
+                   background-image:
+                   {% if direction.header.overlay_filter %} {{ direction.header.overlay_filter }},{% endif %}
+                   url('{{ direction.header.overlay_image | relative_url }}');
+                   {% if direction.header.overaly_css %}
+                   {{ direction.header.overlay_size }}
+                   {% endif %}
+                   ">
+                <div class="sub-direction-title">
+                    <h2>{{ direction.title }}</h2>
+                </div>
+                {% if direction.one-liner %}
+                <div class="sub-direction-excerpt">
+                    {{ direction.one-liner | markdownify }}
+                </div>
+                {% endif %}
+
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+
+</div>

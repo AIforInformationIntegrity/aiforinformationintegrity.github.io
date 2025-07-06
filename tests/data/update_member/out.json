@@ -1,0 +1,44 @@
+{
+    "name": "John Doe",
+    "avatar": "/tests/scratch/assets/images/bio/John Doe.jpg",
+    "bio": "I'm a very happy student",
+    "note": "Allergic to reviewer 2",
+    "semantic_scholar_id": "145113126",
+    "auto_update_publications": true,
+    "current_role": {
+        "type": "Unaffiliated",
+        "title": "Professing at Leland S. Junior University",
+        "research_directions": [
+            "online-toxicity",
+            "poli-sci",
+            "online-crime"
+        ]
+    },
+    "past_roles": [
+        {
+            "type": "Student",
+            "title": "PhD",
+            "start_date": "Fall 2019",
+            "advisor": "Reihaneh Rabbany",
+            "end_date": "Winter 2023"
+        }
+    ],
+    "social_media_links": [
+        {
+            "label": "GitHub",
+            "url": "www.github.com"
+        },
+        {
+            "label": "Twitter",
+            "url": "https://twitter.com/McGill_NLP"
+        },
+        {
+            "label": "Scholar",
+            "url": "https://scholar.google.com/"
+        },
+        {
+            "label": "LinkedIn",
+            "url": "https://www.linkedin.com/in/fake_user/"
+        }
+    ]
+}

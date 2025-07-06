@@ -1,0 +1,186 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Complex Data Lab
+email:
+description: >- # this means to ignore newlines until "baseurl:"
+  Complex Data Lab is a research group within McGill University and Mila focusing on network science and applied machine learning. 
+twitter_username: complexDataLab
+github_username: ComplexData-MILA
+logo: "/assets/images/logo/logo.png"
+og_image: "/assets/images/logo/logo.png"
+dark_theme_css: "/assets/css/main-dark.css"
+log_level: info
+search: true
+future: true
+
+# Build settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes@4.26.2
+# Outputting
+permalink: /:categories/:title/
+timezone: America/Montreal
+
+include:
+  - _pages
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - documentation
+  - records
+  - src
+  - tests
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-sitemap
+  - jekyll-gist
+  - jemoji
+  - jekyll-include-cache
+
+author:
+  name   : "Complex Data Lab Member(s)"
+  avatar : "/assets/images/bio/placeholder/martlet.jpeg"
+  bio    : "Current or former lab member(s) worked on this."
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.complexdatalab.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ComplexData-MILA"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://x.com/complexDataLab"
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-MEDG9XN4VP"
+    anonymize_ip: false # default
+
+atom_feed:
+  hide: true
+
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ComplexData-MILA"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://x.com/complexDataLab"
+    - label: "Updating the website"
+      icon: "fas fa-fw fa-code"
+      url: "https://github.com/ComplexData-MILA/ComplexDataLab-Mila-McGill"
+
+defaults:
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      classes: 
+        - no-sidebar
+        - wide
+      author_profile: false
+
+  # _posts/blog
+  - scope:
+      path: _posts/blog
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: false
+      classes:
+        - wide
+
+  # _posts/papers
+  - scope:
+      path: _posts/papers
+      type: posts
+    values:
+      layout: publication
+      classes:
+        - wide
+      author_profile: true
+      share: true
+
+  # _posts/teaching
+  - scope:
+      path: _posts/teaching
+      type: posts
+    values:
+      layout: single
+      classes:
+        - no-sidebar
+      author_profile: false
+
+  # _pages/profiles
+  - scope:
+      path: "_pages/profiles"
+      type: pages
+    values:
+      layout: profile
+      classes:
+        - wide
+        - no-sidebar
+      author_profile: true
+
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      classes:
+        - no-sidebar
+      author_profile: false
+      share: true
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# Collections
+collections:
+  research_directions:
+    output: true
+    permalink: /:path/
+  tech_transfer:
+    output: false
+
+# Performance
+compress_html:
+  clippings: all
+  # ignore:
+  #   envs: development

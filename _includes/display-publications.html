@@ -1,0 +1,51 @@
+<article class="publication-card" itemscope itemtype="https://schema.org/CreativeWork">
+
+    {% if post.thumbnail %}
+    {% assign currentYear = 'now' | date: "%Y" %}
+    {% assign postYear = post.date | date: "%Y" %}
+    {% if postYear == currentYear %}
+    {% assign loading = "eager" %}
+    {% else %}
+    {% assign loading = "lazy" %}
+    {% endif %}
+    <img src="{{ post.thumbnail | relative_url }}" class="publication-thumbnail" loading="{{ loading }}"
+        alt="A thumbnail that highlights the contribution of the paper">
+    {% endif %}
+
+    <h2 class="publication-title" itemprop="headline">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h2>
+
+    {% if post.names %}
+    <div class="publication-authors">
+        {{ post.names }}
+    </div>
+    {% elsif post.author %}
+    <div class="publication-authors">
+        {{ post.author }}
+    </div>
+    {% endif %}
+
+    {% if post.course_code %}
+    <div class="publication-venue">
+        {{ post.course_code }}
+        ({{ post.term | date: "%Y"}})
+    </div>
+    {% elsif post.semester %}
+    <div class="publication-venue">
+        {{ post.semester }}
+        <!-- We do not show year here -->
+    </div>
+    {% else %}
+    <div class="publication-venue">
+        {% if post.venue_full %}
+        {{ post.venue_full }}
+        {% elsif post.venue %}
+        {{ post.venue }}
+        {% endif %}
+        ({{ post.date | date: "%Y" }})
+    </div>
+    {% endif %}
+
+    {% include display-publication-links.html pub=post%}
+</article>

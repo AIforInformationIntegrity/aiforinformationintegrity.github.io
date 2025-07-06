@@ -1,0 +1,23 @@
+{
+    "name": "John Doe",
+    "avatar": "/tests/scratch/assets/images/bio/John Doe.jpg",
+    "semantic_scholar_id": "145113126",
+    "auto_update_publications": true,
+    "current_role": {
+        "type": "Student",
+        "title": "PhD",
+        "affiliation": "Mila, McGill",
+        "research_directions": [
+            "online-toxicity",
+            "poli-sci"
+        ],
+        "advisor": "Reihaneh Rabbany",
+        "start_date": "Fall 2019"
+    },
+    "social_media_links": [
+        {
+            "label": "GitHub",
+            "url": "www.github.com"
+        }
+    ]
+}

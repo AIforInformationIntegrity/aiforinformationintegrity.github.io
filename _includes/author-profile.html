@@ -1,0 +1,72 @@
+{% assign author = page.author | default: page.authors[0] | default: site.author %}
+{% assign author = site.data.authors[author] | default: author %}
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+
+    {% if author.avatar %}
+    <div class="author-avatar-v2">
+        <img loading="{{ loading }}" src="{{ author.avatar | relative_url }}" alt="An image of {{ author.name }}"
+            class="u-photo" itemprop="image">
+    </div>
+
+    {% else %}
+    <div class="author-avatar-v2">
+        <img loading="{{ loading }}" src="{{ site.author.avatar | relative_url }}" alt="An image of {{ author.name }}"
+            class="u-photo" itemprop="image">
+    </div>
+    {% endif %}
+
+
+    <div class="author__content">
+
+        <h3 class="author-name">
+            {% if author.social_media_links %}
+            <a href="{{ author.social_media_links[0].url }}"
+                aria-label="Access the primary external link of this author">{{
+                author.name }}</a>
+            {% else %}
+            {{ author.name }}
+            {% endif %}
+        </h3>
+
+        {% if author.bio %}
+        <div class="author-bio">
+            {{ author.bio | markdownify }}
+        </div>
+        {% endif %}
+
+        {% if author.note %}
+        <div class="author-note">
+            {{ author.note | markdownify }}
+        </div>
+        {% endif %}
+
+        <div class="author__urls-wrapper">
+            <button class="btn btn--inverse">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default:
+                "Follow" }}</button>
+
+            <ul class="author__urls">
+
+                {% if author.social_media_links %}
+
+                {% for link in author.social_media_links %}
+                {% include infer-icon.html link=link %}
+                {% if icon %}
+                <li>
+                    <a href="{{ link.url }}" class="author-button">
+                        <i class="{{ icon }} author-button" aria-label="Access author's external link for {{ icon }}">
+                        </i>
+                    </a>
+                </li>
+
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+
+                {% include author-profile-custom-links.html %}
+            </ul>
+        </div>
+
+    </div>
+</div>

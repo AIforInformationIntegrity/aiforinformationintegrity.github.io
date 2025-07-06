@@ -1,0 +1,43 @@
+{% if include.category %}
+{% assign research-directions = site.research_directions | where: "category", include.category %}
+{% else %}
+{% assign research-directions = page.research-directions %}
+{% endif %}
+
+{% assign sorted-research-directions = research-directions | sort: "order" %} <!-- or sort: "date" -->
+
+<div class="research-directions__wrapper">
+
+  {% for r in sorted-research-directions %}
+  <div class="research-directions-item">
+    <a href="{{ r.url | relative_url }}" title="{{r.title}}">
+
+      <div class="direction-image" style="
+      background-image: 
+      {% if r.header.overlay_filter %}
+      {{ r.header.overlay_filter }},
+      {% endif %}
+      url('{{ r.header.overlay_image | relative_url }}');
+      {% if r.header.overlay_size %} 
+      background-size: {{r.header.overlay_size }}; 
+      {% endif %}
+      ">
+        <div class="direction-title">
+
+          <h2>{{ r.title }}</h2>
+        </div>
+        {% if r.one-liner %}
+        <div class="direction-excerpt">
+          {{ r.one-liner | markdownify }}
+        </div>
+        {% endif %}
+      </div>
+
+
+
+    </a>
+
+  </div>
+  {% endfor %}
+
+</div>
