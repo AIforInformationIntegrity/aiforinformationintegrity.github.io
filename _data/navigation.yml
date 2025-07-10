@@ -1,27 +1,18 @@
 main:
+  - title: "Mission"
+    url: /mission
   - tab: "Research"
     subpages:
-      - page: "Temporal Graph Learning"
-        url: /temporal-graph-learning/
-      - page: "Crime & Online Markets"
-        url: /online-crime/
-      - page: "Politics & Online Media"
-        url: /poli-sci/
-      - page: "Toxicity & Online Games"
-        url: /online-toxicity/
-      - page: "Tools & Resources"
-        url: /tools-and-resources/
-      - page: "Publications"
-        url: /publications/
-  - tab: "About"
-    subpages:
-      - page: "About the Lab"
-        url: /about/
-      - page: "News"
-        url: /
-      - page: "People"
-        url: /people/
-      - page: "Teaching"
-        url: /teaching/
-  - title: "Join Us"
-    url: /about/#join-us
+      - page: "Ideology & Polarization"
+        url: /ideology-and-polarization/
+      - page: "Information Integrity"
+        url: /information-integrity/
+      - page: "Social Simulations"
+        url: /social-simulations/
+    url: /
+  - title: "People"
+    url: /people/
+  - title: "Funding"
+    url: /funding/
+  - title: "Publications"
+    url: /publications/

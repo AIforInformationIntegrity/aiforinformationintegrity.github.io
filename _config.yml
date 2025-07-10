@@ -13,15 +13,14 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Complex Data Lab
+title: AI4
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Complex Data Lab is a research group within McGill University and Mila focusing on network science and applied machine learning. 
-twitter_username: complexDataLab
-github_username: ComplexData-MILA
+  AI Institute for Information Integrity (AI4) is a research institute focused on developing AI technologies that enhance information integrity.
+# twitter_username: 
+# github_username: 
 logo: "/assets/images/logo/logo.png"
 og_image: "/assets/images/logo/logo.png"
-dark_theme_css: "/assets/css/main-dark.css"
 log_level: info
 search: true
 future: true
@@ -60,9 +59,9 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Complex Data Lab Member(s)"
+  name   : "AI4 member(s)"
   avatar : "/assets/images/bio/placeholder/martlet.jpeg"
-  bio    : "Current or former lab member(s) worked on this."
+  bio    : "Current or former member(s) worked on this."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -87,13 +86,10 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/ComplexData-MILA"
+      url: "https://github.com/AIforInformationIntegrity"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://x.com/complexDataLab"
-    - label: "Updating the website"
-      icon: "fas fa-fw fa-code"
-      url: "https://github.com/ComplexData-MILA/ComplexDataLab-Mila-McGill"
+      url: "https://x.com"
 
 defaults:
   # _pages

@@ -1,27 +1,20 @@
 ---
 permalink: /
-title: Complex Data Lab
+title: AI Institute for Information Integrity
 layout: splash
 header:
     overlay_image: /assets/images/trottier.webp
-    actions:
-        - label: "GitHub"
-          url: "https://github.com/ComplexData-MILA"
-        - label: "Twitter"
-          url: "https://x.com/complexDataLab"
-        - label: "LinkedIn"
-          url: "https://www.linkedin.com/company/complex-data-lab-mcgill-mila"
 
-excerpt: "A research group focusing on developing techniques for analyzing complex data from online societies, with applications to enhance the health and safety of online spaces."
+excerpt: "Fostering a safe, open space for online public discourse."
 
 row_research:
-  - image_path: /assets/images/home/group-photo-1.webp
+  - image_path: /assets/images/home/group-photo-2.webp
     url: /publications
-    alt: "Poster Presentation"
-    title: "Research"
-    btn_label: "Publications"
+    alt: "Transformative Collaboration"
+    title: "Transformative Collaboration"
+    btn_label: "Learn More"
     btn_class: "btn--primary"
-    excerpt: "We work on various topics and present our works in ML and NLP conferences and journals."
+    excerpt: "The current digital age fundamentally changes how we as individuals and a society collect and distribute information. With these changes come powerful new approaches to influence the public agenda. However, the quality of shared information varies widely, and can have wide-reaching consequences. As the sophistication and accessibility of AI tools continue to expand, the authenticity of digital content has been increasingly called into question. Our team stands at the forefront of the challenge to safeguard digital space, as we assess the nature of content and how it proliferates online."
 
 ---
 

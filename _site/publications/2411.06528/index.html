@@ -1,0 +1,533 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Epistemic Integrity in Large Language Models - AI4</title>
+<meta name="description" content="Bijean Ghafouri, Shahrad Mohammadzadeh, James Zhou, Pratheeksha Nair, Jacob-Junqi Tian, Mayank Goel, Reihaneh Rabbany, J. Godbout, Kellin Pelrine                                     Paper                                            Abstract  Large language models are increasingly relied upon as sources of information, but their propensity for generating false or misleading statements with high confidence poses risks for users and society. In this paper, we confront the critical problem of epistemic miscalibration $\unicode{x2013}$ where a model’s linguistic assertiveness fails to reflect its true internal certainty. We introduce a new human-labeled dataset and a novel method for measuring the linguistic assertiveness of Large Language Models (LLMs) which cuts error rates by over 50% relative to previous benchmarks. Validated across multiple datasets, our method reveals a stark misalignment between how confidently models linguistically present information and their actual accuracy. Further human evaluations confirm the severity of this miscalibration. This evidence underscores the urgent risk of the overstated certainty LLMs hold which may mislead users on a massive scale. Our framework provides a crucial step forward in diagnosing this miscalibration, offering a path towards correcting it and more trustworthy AI across domains.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AI4">
+<meta property="og:title" content="Epistemic Integrity in Large Language Models">
+<meta property="og:url" content="http://localhost:4000/publications/2411.06528/">
+
+
+  <meta property="og:description" content="Bijean Ghafouri, Shahrad Mohammadzadeh, James Zhou, Pratheeksha Nair, Jacob-Junqi Tian, Mayank Goel, Reihaneh Rabbany, J. Godbout, Kellin Pelrine                                     Paper                                            Abstract  Large language models are increasingly relied upon as sources of information, but their propensity for generating false or misleading statements with high confidence poses risks for users and society. In this paper, we confront the critical problem of epistemic miscalibration $\unicode{x2013}$ where a model’s linguistic assertiveness fails to reflect its true internal certainty. We introduce a new human-labeled dataset and a novel method for measuring the linguistic assertiveness of Large Language Models (LLMs) which cuts error rates by over 50% relative to previous benchmarks. Validated across multiple datasets, our method reveals a stark misalignment between how confidently models linguistically present information and their actual accuracy. Further human evaluations confirm the severity of this miscalibration. This evidence underscores the urgent risk of the overstated certainty LLMs hold which may mislead users on a massive scale. Our framework provides a crucial step forward in diagnosing this miscalibration, offering a path towards correcting it and more trustworthy AI across domains.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo/logo.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-11-10T00:00:00-05:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/publications/2411.06528/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- Add favicon -->
+<link rel="icon" type="image/png" href="/assets/images/logo/favicon.png">
+
+<!-- SEO meta tags -->
+<meta name="author" content="Bijean Ghafouri, Shahrad Mohammadzadeh, James Zhou, Pratheeksha Nair, Jacob-Junqi Tian, Mayank Goel, Reihaneh Rabbany, J. Godbout, Kellin Pelrine">
+<meta name="description"
+    content="AI Institute for Information Integrity (AI4) is a research institute focused on developing AI technologies that enhance information integrity.">
+
+<!-- Open Graph and Twitter Card data -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AI4">
+<meta property="og:title" content="Epistemic Integrity in Large Language Models">
+<meta property="og:description"
+    content="AI Institute for Information Integrity (AI4) is a research institute focused on developing AI technologies that enhance information integrity.">
+
+
+
+<!-- particles.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="/assets/js/particles-config.js"></script>
+  </head>
+
+  <body class="layout--publication wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!-- Overrides and modified from: https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/_includes/masthead.html -->
+
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-logo" href="/"><img src="/assets/images/logo/logo.png"
+            alt="AI4"></a>
+        
+        <a class="site-title" href="/">
+          AI4
+          
+        </a>
+        <ul class="visible-links">
+
+          
+          <li class="masthead__menu-item">
+            <a href="/mission" >Mission</a>
+          </li>
+          
+          <li class="masthead__menu-item">
+            <a href="/" >Research</a>
+            <ul class="submenu"><li class="masthead__menu-item">
+                <a href="/ideology-and-polarization/" >Ideology & Polarization</a>
+              </li><li class="masthead__menu-item">
+                <a href="/information-integrity/" >Information Integrity</a>
+              </li><li class="masthead__menu-item">
+                <a href="/social-simulations/" >Social Simulations</a>
+              </li></ul>
+          </li>
+          
+
+          
+
+          
+          <li class="masthead__menu-item">
+            <a href="/people/" >People</a>
+          </li>
+          
+
+          
+          <li class="masthead__menu-item">
+            <a href="/funding/" >Funding</a>
+          </li>
+          
+
+          
+          <li class="masthead__menu-item">
+            <a href="/publications/" >Publications</a>
+          </li>
+          </ul>
+
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search search-button"></i>
+        </button>
+        
+
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+
+        <ul class="hidden-links hidden"></ul>
+
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+
+    
+    <div class="author-avatar-v2">
+        <img loading="" src="/assets/images/bio/placeholder/martlet.jpeg" alt="An image of "
+            class="u-photo" itemprop="image">
+    </div>
+    
+
+
+    <div class="author__content">
+
+        <h3 class="author-name">
+            
+            
+            
+        </h3>
+
+        
+
+        
+
+        <div class="author__urls-wrapper">
+            <button class="btn btn--inverse">Follow</button>
+
+            <ul class="author__urls">
+
+                
+
+                <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+            </ul>
+        </div>
+
+    </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Epistemic Integrity in Large Language Models">
+    <meta itemprop="description" content="Bijean Ghafouri, Shahrad Mohammadzadeh, James Zhou, Pratheeksha Nair, Jacob-Junqi Tian, Mayank Goel, Reihaneh Rabbany, J. Godbout, Kellin Pelrine                            Paper                            AbstractLarge language models are increasingly relied upon as sources of information, but their propensity for generating false or misleading statements with high confidence poses risks for users and society. In this paper, we confront the critical problem of epistemic miscalibration $\unicode{x2013}$ where a model’s linguistic assertiveness fails to reflect its true internal certainty. We introduce a new human-labeled dataset and a novel method for measuring the linguistic assertiveness of Large Language Models (LLMs) which cuts error rates by over 50% relative to previous benchmarks. Validated across multiple datasets, our method reveals a stark misalignment between how confidently models linguistically present information and their actual accuracy. Further human evaluations confirm the severity of this miscalibration. This evidence underscores the urgent risk of the overstated certainty LLMs hold which may mislead users on a massive scale. Our framework provides a crucial step forward in diagnosing this miscalibration, offering a path towards correcting it and more trustworthy AI across domains.">
+    <meta itemprop="datePublished" content="2024-11-10T00:00:00-05:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/publications/2411.06528/" itemprop="url">Epistemic Integrity in Large Language Models
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "http://localhost:4000"
+    }
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Publications",
+      "item": "http://localhost:4000/publications/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Epistemic Integrity in Large Language Models",
+      "item": "http://localhost:4000/publications/2411.06528/"
+    }
+    
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Epistemic Integrity in Large Language Models",
+  "author": [
+    
+    
+    {
+      "@type": "Person",
+      "name": "Bijean Ghafouri"
+    },
+    
+    {
+      "@type": "Person",
+      "name": "Shahrad Mohammadzadeh"
+    },
+    
+    {
+      "@type": "Person",
+      "name": "James Zhou"
+    },
+    
+    {
+      "@type": "Person",
+      "name": "Pratheeksha Nair"
+    },
+    
+    {
+      "@type": "Person",
+      "name": "Jacob-Junqi Tian"
+    },
+    
+    {
+      "@type": "Person",
+      "name": "Mayank Goel"
+    },
+    
+    {
+      "@type": "Person",
+      "name": "Reihaneh Rabbany"
+    },
+    
+    {
+      "@type": "Person",
+      "name": "J. Godbout"
+    },
+    
+    {
+      "@type": "Person",
+      "name": "Kellin Pelrine"
+    }
+    
+  ],
+  "datePublished": "",
+  "publisher": "",
+  
+  
+  
+  "keywords": [""],
+  
+  "isAccessibleForFree": false
+}
+</script>
+
+<p><em>Bijean Ghafouri, Shahrad Mohammadzadeh, James Zhou, Pratheeksha Nair, Jacob-Junqi Tian, Mayank Goel, Reihaneh Rabbany, J. Godbout, Kellin Pelrine</em></p>
+
+<hr />
+
+<div class="publication-links">
+    
+    
+    <a class="publication-ext-link" href="https://arxiv.org/abs/2411.06528" target="_blank">
+        <i class="fas fa-book"></i>
+        <span>Paper</span>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>Large language models are increasingly relied upon as sources of information, but their propensity for generating false or misleading statements with high confidence poses risks for users and society. In this paper, we confront the critical problem of epistemic miscalibration $\unicode{x2013}$ where a model’s linguistic assertiveness fails to reflect its true internal certainty. We introduce a new human-labeled dataset and a novel method for measuring the linguistic assertiveness of Large Language Models (LLMs) which cuts error rates by over 50% relative to previous benchmarks. Validated across multiple datasets, our method reveals a stark misalignment between how confidently models linguistically present information and their actual accuracy. Further human evaluations confirm the severity of this miscalibration. This evidence underscores the urgent risk of the overstated certainty LLMs hold which may mislead users on a massive scale. Our framework provides a crucial step forward in diagnosing this miscalibration, offering a path towards correcting it and more trustworthy AI across domains.</p>
+
+
+<div>
+  
+
+
+
+
+
+
+
+</div>
+        <div><a href="https://arxiv.org/abs/2411.06528" class="btn btn--primary">Direct Link</a></div>
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/" class="page__taxonomy-item p-category" rel="tag"></a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#publications" class="page__taxonomy-item p-category" rel="tag">Publications</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-10T00:00:00-05:00">November 10, 2024</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Epistemic+Integrity+in+Large+Language+Models%20http%3A%2F%2Flocalhost%3A4000%2Fpublications%2F2411.06528%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpublications%2F2411.06528%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/publications/2411.06528/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/publications/information-integrity/2411.05060/" class="pagination--pager" title="A Guide to Misinformation Detection Datasets
+">Previous</a>
+    
+    
+      <a href="/publications/2412.04626/" class="pagination--pager" title="BigDocs: An Open and Permissively-Licensed Dataset for Training Multimodal Models on Document and Code Tasks
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+        
+
+        
+        
+        
+        <li><a href="https://github.com/AIforInformationIntegrity" rel="nofollow noopener noreferrer"><i
+                    class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+        
+        
+        <li><a href="https://x.com" rel="nofollow noopener noreferrer"><i
+                    class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+        
+        
+
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a
+        href="http://localhost:4000">AI4</a>.</div>
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

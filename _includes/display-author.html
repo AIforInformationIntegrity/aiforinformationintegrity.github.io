@@ -35,7 +35,7 @@
             <b>{{ include.role_to_render.title }}</b>
             {% endif %}
         </div>
-        {% if include.role_to_render.start_date %}
+        {% if include.role_to_render.start_type and include.role_to_render.type != "Director" %}
         <div class="author-advisor">
             <span>
                 ({{ include.role_to_render.start_date }}{% if include.role_to_render.end_date %}-{{
