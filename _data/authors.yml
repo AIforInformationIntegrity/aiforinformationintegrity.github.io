@@ -214,9 +214,11 @@ Kellin Pelrine:
   semantic_scholar_id: "104333826"
   auto_update_publications: true
   current_role:
-    type: None
-    title: _No response_
+    type: Student
+    title: PhD
     affiliation: Mila, McGill
+    research_directions:
+      - poli-sci
   social_media_links:
     - label: Website
       url: https://kellinpelrine.github.io/

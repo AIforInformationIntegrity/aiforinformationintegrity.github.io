@@ -62,16 +62,6 @@ author:
   name   : "AI4 member(s)"
   avatar : "/assets/images/bio/placeholder/martlet.jpeg"
   bio    : "Current or former member(s) worked on this."
-  links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://www.complexdatalab.com"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/ComplexData-MILA"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://x.com/complexDataLab"
 
 analytics:
   provider: "google-gtag"
@@ -127,16 +117,6 @@ defaults:
         - wide
       author_profile: true
       share: true
-
-  # _posts/teaching
-  - scope:
-      path: _posts/teaching
-      type: posts
-    values:
-      layout: single
-      classes:
-        - no-sidebar
-      author_profile: false
 
   # _pages/profiles
   - scope:
