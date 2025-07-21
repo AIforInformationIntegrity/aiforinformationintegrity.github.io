@@ -5,6 +5,7 @@ category: research-directions
 order: 1
 header:
     overlay_image: /assets/images/research_directions/information-integrity.png
+    overlay_css: "background-position&#58; center; background-repeat&#58; no-repeat; background-size&#58; contain"
 one-liner: How can we find reliable insights amid a deluge of conflicting information?
 excerpt: The information landscape is increasingly flooded with uncertain and conflicting information. We aim to create understanding and tools that will empower all of us in navigating this landscape and finding the trustworthy insights every person wants.
 

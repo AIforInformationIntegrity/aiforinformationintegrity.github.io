@@ -5,6 +5,7 @@ category: research-directions
 order: 2
 header:
     overlay_image: /assets/images/research_directions/social-simulation.png
+    overlay_css: "background-position&#58; center; background-repeat&#58; no-repeat; background-size&#58; contain"
 one-liner: How can we prototype effective defenses to attacks on information integrity in an ethical and efficient way?
 excerpt: We use and develop state-of-the-art approaches to human social system simulation to simulate attacks on information integrity in critical social phenomena and to prototype effective defenses against them. 
 ---
