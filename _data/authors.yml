@@ -41,7 +41,7 @@ Aarash Feizi:
     techniques in CV and NLP for social good with real-world impacts.
   username: feiziaar
   semantic_scholar_id: "1962954677"
-  auto_update_publications: true
+  auto_update_publications: false
   current_role:
     type: Student
     title: PhD
@@ -134,7 +134,7 @@ Victor Livernoche:
   bio: Working on generative AI
   semantic_scholar_id: "2219226719"
   username: victor.livernoche
-  auto_update_publications: true
+  auto_update_publications: false
   current_role:
     type: Student
     title: PhD
@@ -212,7 +212,7 @@ Kellin Pelrine:
     research.
   note: Research Scientist @ FAR.AI
   semantic_scholar_id: "104333826"
-  auto_update_publications: true
+  auto_update_publications: false
   current_role:
     type: Student
     title: PhD
@@ -264,7 +264,7 @@ Sahar Omidi Shayegan:
   bio: Studies Social Networks through Graphs and Language Modeling
   semantic_scholar_id: "2302559514"
   username: sahar.omidishayegan
-  auto_update_publications: true
+  auto_update_publications: false
   current_role:
     type: Student
     title: Master
@@ -285,7 +285,7 @@ Sahar Omidi Shayegan:
 
 Camille Thibault:
   name: Camille Thibault
-  auto_update_publications: true
+  auto_update_publications: false
   current_role:
     type: Collaborator
     title: Master
@@ -384,7 +384,7 @@ Zachary Yang:
   bio: Working on applied NLP for social good - toxicity, misinformation, polarization
   note: Fast tracked from Masters to PhD
   semantic_scholar_id: "2155115994"
-  auto_update_publications: true
+  auto_update_publications: false
   current_role:
     type: Student
     title: PhD
