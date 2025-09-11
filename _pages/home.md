@@ -3,7 +3,7 @@ permalink: /
 title: AI Institute for Information Integrity
 layout: splash
 header:
-    overlay_image: /assets/images/logo/logo.png
+    overlay_image: /assets/images/logo/favicon.png
     overlay_css: "background-size&#58; contain; background-repeat&#58; no-repeat;"
 
 excerpt: "Fostering a safe, open space for online public discourse."
